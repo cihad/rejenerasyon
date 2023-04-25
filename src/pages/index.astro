@@ -62,19 +62,16 @@ const featuredProducts = await getCollection('product', ({ data }) => data.isFea
 	
 
 		
-		<div class="container px-4 py-5" id="custom-cards">
+		<div class="container py-5" id="custom-cards">
 			<h2 class="pb-2 border-bottom">Öne Çıkan Ürünlerimiz</h2>
 	
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 				{
 					featuredProducts.map((product) => (
-						<Card imageSource={product.data.image.src} title={product.data.title} category={product.data.category} />
+						<Card imageSource={product.data.image.src} title={product.data.title} category={product.data.category} url={`/products/${product.slug}`} />
 						// <pre>{JSON.stringify(product, null, 2)}</pre>
 					))
 				}
-				<!-- <Card imageSource={propolisImg.src} title="Propolis" category="Propolis" />
-				<Card imageSource={agizBakimImg.src} title="Ağız Bakım Suyu" category="Propolis" />
-				<Card imageSource={ciltBakimImg.src} title="Cilt Bakım Kremi" category="Cilt Bakım Ürünleri" /> -->
 			</div>
 		</div>
 	
