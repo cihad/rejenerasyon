@@ -12,13 +12,25 @@ import logo from '../assets/logo.svg'
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a href="#" class="nav-link px-2 link-secondary">Anasayfa</a></li>
-      <li><a href="#" class="nav-link px-2">Ürünlerimiz</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Ürünlerimiz
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Cilt Bakım Ürünleri</a></li>
+          <li><a class="dropdown-item" href="#">Saç Bakım Ürünleri</a></li>
+          <li><a class="dropdown-item" href="#">Ağız Bakım Ürünleri</a></li>
+          <li><a class="dropdown-item" href="#">Natural Burun Spreyi</a></li>
+          <li><a class="dropdown-item" href="#">Gıda Takviyeleri</a></li>
+        </ul>
+      </li>
       <li><a href="#" class="nav-link px-2">İletişim</a></li>
     </ul>
 
-    <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2">Login</button>
-      <button type="button" class="btn btn-primary">Sign-up</button>
-    </div>
+    <ul class="nav col-md-3 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
   </header>
 </div>

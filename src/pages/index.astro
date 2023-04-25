@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import propolisImg from '../assets/propolis.jpg'
+import agizBakimImg from '../assets/agiz-bakim-suyu.jpg'
+import ciltBakimImg from '../assets/cilt-bakim-kremi.jpeg'
 ---
 
 <Layout title="Welcome to Rejenerasyon.">
@@ -53,6 +57,17 @@ import Layout from '../layouts/Layout.astro';
 			</button>
 		</div>
 	
+
+		
+		<div class="container px-4 py-5" id="custom-cards">
+			<h2 class="pb-2 border-bottom">Öne Çıkan Ürünlerimiz</h2>
+	
+			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+				<Card imageSource={propolisImg.src} title="Propolis" category="Propolis" />
+				<Card imageSource={agizBakimImg.src} title="Ağız Bakım Suyu" category="Propolis" />
+				<Card imageSource={ciltBakimImg.src} title="Cilt Bakım Kremi" category="Cilt Bakım Ürünleri" />
+			</div>
+		</div>
 	
 		<!-- Marketing messaging and featurettes
 		================================================== -->
