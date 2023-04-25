@@ -6,10 +6,7 @@ import agizBakimImg from '../assets/agiz-bakim-suyu.jpg'
 import ciltBakimImg from '../assets/cilt-bakim-kremi.jpeg'
 
 import { getCollection, getEntryBySlug } from 'astro:content';
-const allProducts = await getCollection('product');
-const featuredProducts = [
-	await getEntryBySlug('product', 'propolis')
-]
+const featuredProducts = await getCollection('product', ({ data }) => data.isFeatured)
 ---
 
 <Layout title="Welcome to Rejenerasyon.">
@@ -71,7 +68,8 @@ const featuredProducts = [
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 				{
 					featuredProducts.map((product) => (
-						<Card imageSource={product.imageSrc} title={product.title} category={product.category} />
+						<Card imageSource={product.data.image.src} title={product.data.title} category={product.data.category} />
+						// <pre>{JSON.stringify(product, null, 2)}</pre>
 					))
 				}
 				<!-- <Card imageSource={propolisImg.src} title="Propolis" category="Propolis" />
