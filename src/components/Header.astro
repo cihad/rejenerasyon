@@ -2,38 +2,43 @@
 import logo from '../assets/logo.svg'
 ---
 
-<div class="container">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <div class="col-md-3 mb-2 mb-md-0">
-      <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-        <img src={logo.src} alt="" height="20">
-      </a>
-    </div>
+<nav class="navbar navbar-expand-lg" aria-label="Eleventh navbar example">
+  <div class="container py-4">
+    <a href="/" class="navbar-brand">
+      <img src={logo.src} alt="" height="20">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link active">Anasayfa</a></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Ürünlerimiz
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Cilt Bakım Ürünleri</a></li>
-          <li><a class="dropdown-item" href="#">Saç Bakım Ürünleri</a></li>
-          <li><a class="dropdown-item" href="#">Ağız Bakım Ürünleri</a></li>
-          <li><a class="dropdown-item" href="#">Natural Burun Spreyi</a></li>
-          <li><a class="dropdown-item" href="#">Gıda Takviyeleri</a></li>
-        </ul>
-      </li>
-      <li><a href="#" class="nav-link">İletişim</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Anasayfa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ürünlerimiz
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Cilt Bakım Ürünleri</a></li>
+            <li><a class="dropdown-item" href="#">Saç Bakım Ürünleri</a></li>
+            <li><a class="dropdown-item" href="#">Ağız Bakım Ürünleri</a></li>
+            <li><a class="dropdown-item" href="#">Natural Burun Spreyi</a></li>
+            <li><a class="dropdown-item" href="#">Gıda Takviyeleri</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Contact</a>
+        </li>
+      </ul>
 
-    <ul class="nav col-md-3 justify-content-end list-unstyled d-flex">
-      <li class="ms-3">
+      <div class="justify-content-end d-flex">
         <a class="icon-link link-danger link-underline-danger" href="https://instagram.com/rejenerasyonbiyoteknoloji/" target="_blank">
           <svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg>
           rejenerasyonbiyoteknoloji
         </a>
-      </li>
-    </ul>
-  </header>
-</div>
+      </div>
+    </div>
+  </div>
+</nav>
