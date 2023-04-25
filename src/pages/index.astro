@@ -4,6 +4,12 @@ import Card from '../components/Card.astro';
 import propolisImg from '../assets/propolis.jpg'
 import agizBakimImg from '../assets/agiz-bakim-suyu.jpg'
 import ciltBakimImg from '../assets/cilt-bakim-kremi.jpeg'
+
+import { getCollection, getEntryBySlug } from 'astro:content';
+const allProducts = await getCollection('product');
+const featuredProducts = [
+	await getEntryBySlug('product', 'propolis')
+]
 ---
 
 <Layout title="Welcome to Rejenerasyon.">
@@ -63,9 +69,14 @@ import ciltBakimImg from '../assets/cilt-bakim-kremi.jpeg'
 			<h2 class="pb-2 border-bottom">Öne Çıkan Ürünlerimiz</h2>
 	
 			<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-				<Card imageSource={propolisImg.src} title="Propolis" category="Propolis" />
+				{
+					featuredProducts.map((product) => (
+						<Card imageSource={product.imageSrc} title={product.title} category={product.category} />
+					))
+				}
+				<!-- <Card imageSource={propolisImg.src} title="Propolis" category="Propolis" />
 				<Card imageSource={agizBakimImg.src} title="Ağız Bakım Suyu" category="Propolis" />
-				<Card imageSource={ciltBakimImg.src} title="Cilt Bakım Kremi" category="Cilt Bakım Ürünleri" />
+				<Card imageSource={ciltBakimImg.src} title="Cilt Bakım Kremi" category="Cilt Bakım Ürünleri" /> -->
 			</div>
 		</div>
 	
