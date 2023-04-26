@@ -1,0 +1,12 @@
+---
+import settings from '../../../data/settings.json'
+
+export async function getStaticPaths() {
+  const categories = Object.keys(settings.categories).map(cat => ({ params: { category: cat } }))
+
+  return categories;
+}
+
+---
+
+kategori sayfasi

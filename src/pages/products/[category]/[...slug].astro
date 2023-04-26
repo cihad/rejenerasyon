@@ -1,19 +1,24 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro'
+import Layout from '../../../layouts/Layout.astro'
+
 export async function getStaticPaths() {
   const productsEntries = await getCollection('product');
-  return productsEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+
+  return [
+    ...productsEntries.map(entry => ({
+      params: { slug: entry.slug }, props: { entry },
+    })),
+  ];
 }
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={"merhaba"}>
   <div class="container">
-
+    <pre>{JSON.stringify(entry, null, 2)}</pre>
     <h1>{entry.data.title}</h1>
     <Content />
   </div>

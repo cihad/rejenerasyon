@@ -1,4 +1,5 @@
 ---
+import settings from '../data/settings.json'
 import logo from '../assets/logo.svg'
 import Instagram from './Instagram.astro'
 ---
@@ -22,11 +23,13 @@ import Instagram from './Instagram.astro'
             Ürünlerimiz
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Cilt Bakım Ürünleri</a></li>
-            <li><a class="dropdown-item" href="#">Saç Bakım Ürünleri</a></li>
-            <li><a class="dropdown-item" href="#">Ağız Bakım Ürünleri</a></li>
-            <li><a class="dropdown-item" href="#">Natural Burun Spreyi</a></li>
-            <li><a class="dropdown-item" href="#">Gıda Takviyeleri</a></li>
+            {
+              Object.keys(settings.categories).map(cat => (
+                <li><a class="dropdown-item" href={`/products/${cat}`}>{settings.categories[cat]}</a></li>
+              ))
+            }
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/products">Tüm ürünler</a></li>
           </ul>
         </li>
         <li class="nav-item">

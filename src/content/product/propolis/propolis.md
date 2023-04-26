@@ -1,6 +1,6 @@
 ---
 title: Propolis
-image: "../../assets/propolis.jpg"
+image: "../../../assets/propolis.jpg"
 category: Propolis
 isFeatured: true
 ---
