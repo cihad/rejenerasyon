@@ -1,7 +1,7 @@
 ---
 import largeLogo from "../assets/logo-2.svg"
 import Instagram from './Instagram.astro'
-
+import settings from '../data/settings.json'
 ---
 
 <footer class="py-5 border-top">
@@ -14,33 +14,33 @@ import Instagram from './Instagram.astro'
       <div class="col-4 col-md-3 mb-3 offset-1">
         <h5>Ürün Gruplarımız</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cilt bakım ürünleri</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Saç bakım ürünleri</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ağız bakım ürünleri</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Natural burun spreyi</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gıda takviyeleri</a></li>
+          {
+            Object.entries(settings.categories).map(([cat, name]) => (
+              <li class="nav-item mb-2"><a href={`/products/${cat}`} class="nav-link p-0 text-body-secondary">{name}</a></li>
+            ))
+          }
         </ul>
       </div>
 
       <div class="col-4 col-md-3 mb-3">
         <h5>Hızlı erişim</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Anasayfa</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Hakkımızda</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">İletişim</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Banka bilgileri</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sertifikalarımız</a></li>
+          <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-body-secondary">Anasayfa</a></li>
+          <li class="nav-item mb-2"><a href="/hakkimizda" class="nav-link p-0 text-body-secondary">Hakkımızda</a></li>
+          <li class="nav-item mb-2"><a href="/iletisim" class="nav-link p-0 text-body-secondary">İletişim</a></li>
+          <li class="nav-item mb-2"><a href="/banka-bilgileri" class="nav-link p-0 text-body-secondary">Banka bilgileri</a></li>
+          <li class="nav-item mb-2"><a href="/sertifikalarimiz" class="nav-link p-0 text-body-secondary">Sertifikalarımız</a></li>
         </ul>
       </div>
 
       <div class="col-4 col-md-3 mb-3">
         <h5>Müşteri hizmetleri</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Destek</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Üyelik Sözleşmesi</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Satış sözleşmesi</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Teslimat koşulları</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Garanti ve iade koşulları</a></li>
+          <li class="nav-item mb-2"><a href="/destek" class="nav-link p-0 text-body-secondary">Destek</a></li>
+          <li class="nav-item mb-2"><a href="/uyelik-sozlesmesi" class="nav-link p-0 text-body-secondary">Üyelik Sözleşmesi</a></li>
+          <li class="nav-item mb-2"><a href="/satis-sozlesmesi" class="nav-link p-0 text-body-secondary">Satış sözleşmesi</a></li>
+          <li class="nav-item mb-2"><a href="/teslimat-kosullari" class="nav-link p-0 text-body-secondary">Teslimat koşulları</a></li>
+          <li class="nav-item mb-2"><a href="/garanti-iade-kosullari" class="nav-link p-0 text-body-secondary">Garanti ve iade koşulları</a></li>
         </ul>
       </div>
 

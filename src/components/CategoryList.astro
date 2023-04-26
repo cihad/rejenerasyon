@@ -1,0 +1,32 @@
+---
+import settings from "../data/settings.json"
+
+const { category } = Astro.params
+---
+
+<h2 class="pb-3 border-bottom h5">Kategoriler</h2>
+<ul class="list-unstyled">
+  <li>
+    <a href="/products" class:list={["category-list-item d-inline-block rounded", { 'link-secondary': !category } ]} aria-current="true">
+      Tüm ürünler
+    </a>
+  </li>
+  {Object.entries(settings.categories).map(([slug,name]) => {
+
+    return (
+      <li>
+        <a href={`/products/${slug}`} class:list={["category-list-item d-inline-block rounded", { "link-secondary": slug === category }]} aria-current="true">
+          {name}
+        </a>
+      </li>
+    )
+  })}
+</ul>
+
+<style>
+  .category-list-item {
+    padding: 0.1875rem 0;
+    margin-top: 0.125rem;
+    text-decoration: none;
+  }
+</style>

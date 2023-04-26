@@ -2,11 +2,29 @@
 import { getCollection } from 'astro:content';
 import Layout from "../../layouts/Layout.astro"
 import ProductsList from '../../components/ProductsList.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CategoryList from '../../components/CategoryList.astro';
 
 const products = await getCollection('product')
 const title = "Tüm ürünler"
+const paths = [
+  { href: "/", title: "Anasayfa" },
+  { title }
+]
 ---
 
 <Layout title={title}>
-  <ProductsList products={products} title={title} />
+  <Breadcrumb paths={paths} />
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-3">
+        <CategoryList />
+      </div>
+
+      <div class="col-9">
+        <ProductsList products={products} title={title} />
+      </div>
+    </div>
+  </div>
 </Layout>
