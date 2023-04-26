@@ -1,7 +1,12 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro"
+import ProductsList from '../../components/ProductsList.astro';
+
+const products = await getCollection('product')
+const title = "Tüm ürünler"
 ---
 
-<Layout title="Tüm Ürünler">
-  Tüm ürünler
+<Layout title={title}>
+  <ProductsList products={products} title={title} />
 </Layout>

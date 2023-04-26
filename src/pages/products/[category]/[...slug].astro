@@ -5,10 +5,16 @@ import Layout from '../../../layouts/Layout.astro'
 export async function getStaticPaths() {
   const productsEntries = await getCollection('product');
 
+  console.log(productsEntries)
+
   return [
-    ...productsEntries.map(entry => ({
-      params: { slug: entry.slug }, props: { entry },
-    })),
+    ...productsEntries.map(entry => {
+      const [category, slug] = entry.slug.split("/")
+
+      return {
+        params: { category, slug }, props: { entry },
+      }
+    }),
   ];
 }
 
@@ -18,7 +24,6 @@ const { Content } = await entry.render();
 
 <Layout title={"merhaba"}>
   <div class="container">
-    <pre>{JSON.stringify(entry, null, 2)}</pre>
     <h1>{entry.data.title}</h1>
     <Content />
   </div>

@@ -1,4 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
+import Layout from "../../../layouts/Layout.astro"
+import Card from "../../../components/Card.astro"
+import ProductsList from '../../../components/ProductsList.astro';
 import settings from '../../../data/settings.json'
 
 export async function getStaticPaths() {
@@ -7,6 +11,15 @@ export async function getStaticPaths() {
   return categories;
 }
 
+const { category } = Astro.params
+const products = await getCollection('product', (entry) => {
+  console.log(entry)
+  return entry.slug.startsWith(category)
+})
+
+const title = settings.categories[category]
 ---
 
-kategori sayfasi
+<Layout title={title}>
+  <ProductsList products={products} title={title} />
+</Layout>
