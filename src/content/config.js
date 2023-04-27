@@ -10,6 +10,13 @@ const product = defineCollection({
   })
 });
 
+const page = defineCollection({
+  schema: z.object({
+    title: z.string()
+  })
+})
+
 export const collections = {
   product,
+  page
 };

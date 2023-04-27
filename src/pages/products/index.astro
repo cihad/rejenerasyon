@@ -16,15 +16,13 @@ const paths = [
 <Layout title={title}>
   <Breadcrumb paths={paths} />
 
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-3">
-        <CategoryList />
-      </div>
+  <div class="row">
+    <div class="col-3">
+      <CategoryList />
+    </div>
 
-      <div class="col-9">
-        <ProductsList products={products} title={title} />
-      </div>
+    <div class="col-9">
+      <ProductsList products={products} title={title} />
     </div>
   </div>
 </Layout>
