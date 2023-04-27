@@ -5,23 +5,20 @@ const { category } = Astro.params
 ---
 
 <h2 class="pb-3 border-bottom h5">Kategoriler</h2>
-<ul class="list-unstyled">
-  <li>
-    <a href="/products" class:list={["category-list-item d-inline-block rounded", { 'link-secondary': !category } ]} aria-current="true">
-      Tüm ürünler
-    </a>
-  </li>
+<div class="d-grid">
+  <a href="/products" class:list={["btn text-start", { 'btn-primary': !category } ]}>
+    Tüm ürünler
+  </a>
+
   {Object.entries(settings.categories).map(([slug,name]) => {
 
     return (
-      <li>
-        <a href={`/products/${slug}`} class:list={["category-list-item d-inline-block rounded", { "link-secondary": slug === category }]} aria-current="true">
-          {name}
-        </a>
-      </li>
+      <a href={`/products/${slug}`} class:list={["btn text-start", { "btn-primary": slug === category }]}>
+        {name}
+      </a>
     )
   })}
-</ul>
+</div>
 
 <style>
   .category-list-item {
